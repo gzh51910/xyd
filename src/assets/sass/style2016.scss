@@ -1,0 +1,64 @@
+@charset "UTF-8";
+@import '_mixin.scss';
+
+//basic基本通用的样式
+@import '_basic.scss';
+
+
+//[**基调**]top-头部可通用样式
+@import '_top.scss';
+
+//[**基调**]footer-底部浮动层可通用样式
+@import '_footer.scss';
+
+//[**基调**]formCom-表单布局可通用样式
+@import '_formCom.scss';
+
+//[**基调**]listCom-列表布局可通用样式
+@import '_listCom.scss';
+
+//页面出错，找不到等等
+@import '_pageError.scss';
+
+
+//登录注册时用到的上方图标样式，以及忘记密码那一栏需要的样式
+@import '_login.scss';
+
+//app首页打开的，三个贷款申请的入口
+@import '_index.scss';
+
+
+//DL-类似详情页-标题+内容模式【应用于关于我们】-结构dl+dt+dd
+@import '_detail.scss';
+
+
+//[**不通用**]三个贷款详情介绍页面
+@import '_loanDetail.scss';
+
+
+//[**不通用**]个人中心首页的样式【上方信息简要】
+@import '_userIndex.scss';
+
+//[**不通用**]个人中心-我的奖励
+@import '_reward.scss';
+
+
+//用户贷款相关
+@import '_userBorrow.scss';
+
+
+//我的还款相关样式
+@import '_userRepay.scss';
+
+
+//页面弹框等相关（会话-弹层等）
+@import '_alert.scss';
+//页面加载等待转圈
+@import '_delayTime.scss';
+
+
+//其它零碎的样式
+@import '_common.scss';
+
+// css3 media
+@import '_media.scss';
