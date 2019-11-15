@@ -2,8 +2,7 @@
   <div class="indexBanner" id="banner" ref="banner">
     <ul ref="ul" style="margin-left: 0;">
       <li v-for="data in lists" :key="data">
-        <img :src="require(data.img)" :alert="data.tit" />
-        {{data.img}}
+        <img :src="require(data.img)" :alert="data.tit" class="bannerimg" />
       </li>
     </ul>
     <div class="tag" id="bannerTag">
@@ -22,15 +21,11 @@ export default {
           tit: "",
           img: "./img/banner1.png",
           isOn: false,
-          href:
-            "https://cgtzfiles.b0.upaiyun.com/cgjr/jrwx/html/huodong/sjRename.html"
         },
         {
           tit: "",
           img: "./img/banner2.png",
           isOn: false,
-          href:
-            "https://cgtzfiles.b0.upaiyun.com/cgjr/jrwx/html/huodong/autoPay.html"
         }
       ],
 
@@ -95,11 +90,6 @@ export default {
             this.eachLeft[this.index]
           ); //向左
         } else {
-          //其它情况--点击url
-          console.log(
-            "效果测试用的新窗口打开，【实际需要router/本窗口打开其它链接】"
-          );
-          window.open(this.lists[this.index].href, "_blank");
           this.goAnimate(
             parseInt(this.$refs["ul"].style.marginLeft),
             this.eachLeft[this.index]
@@ -175,3 +165,9 @@ export default {
   }
 };
 </script>
+<style>
+.bannerimg{
+  width: 100%;
+  height: 100%;
+}
+</style>

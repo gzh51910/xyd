@@ -23,6 +23,9 @@
 <script>
   //引入页面数据
   import data from '../../data/user/get_info_new.json';
+  
+
+
 
   export default {
     data() {

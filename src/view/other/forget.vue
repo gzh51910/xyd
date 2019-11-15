@@ -8,13 +8,6 @@
           <input type="number" placeholder="请输入手机号" v-model.number='phone'/>
         </label>
       </li>
-      <li>
-        <label>
-          <span>验证码</span>
-          <input type="number" placeholder="请输入短信验证码" v-model.trim='sms'>
-        </label>
-        <sendSMS @sentAjax='smsAjax'></sendSMS>
-      </li>
       <li :class='showPwd?"icon-eye1":"icon-eye2"'>
         <label>
           <span>设置密码</span>
@@ -34,26 +27,20 @@
       return {
         phone: '',
         pwd: '',
-        sms: '',
         showPwd: true  //开关--明文显示密码
       }
     },
     methods: {
       goSubmit() {
         let checkPhone = /^[1][3578][0-9]{9}$/,
-          checkPwd = /^[\d\D]{6,12}$/,
-          checkSMS = /^[0-9]{4,8}$/;
+          checkPwd = /^[\d\D]{6,12}$/;
         //先做一些简单的判断再提交ajax
         if (checkPhone.test(this.phone) === false) this.$dialog('手机格式不正确');
-        else if (checkSMS.test(this.sms) === false) this.$dialog('验证码不正确');
         else if (checkPwd.test(this.pwd) === false) this.$dialog('密码格式不正确');
         else {
           //暂代，后期ajax
           this.$router.push('/login')
         }
-      },
-      smsAjax() {
-        console.log('在此发送短信ajax--组件中已$emit该函数')
       }
     }
   }

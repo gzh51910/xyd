@@ -4,7 +4,6 @@ import footComponent from "./common/footer";	// footer
 import listComponent from "./common/list";		// list
 import pageError from "./common/pageError";		// pageError(页面报错)
 import noMore from "./common/noMore";			    // noMore(没有更多)
-import sendSMS from "./common/sendSMS";			  // sms
 import canvasCode from './common/canvasCode';	// 仿图片验证码
 
 import alertKnow from "./popup/alertKnow";		// alert-know(弹出知识)
@@ -28,7 +27,6 @@ export default {
   listComponent,
   pageError,
   noMore,
-  sendSMS,
   canvasCode,
 
   alertKnow,

@@ -16,6 +16,8 @@ Router.post("/",async(req,res)=>{
     if(username.length>0){
         res.send("用户名已存在")
     }else{
+        console.log(password);
+        
         await add(nane,{"admin":admin,"password":password})
         res.send("添加成功")
     }

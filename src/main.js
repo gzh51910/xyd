@@ -53,6 +53,9 @@ Object.keys(methods).forEach((key) => {
 	Vue.prototype[key] = methods[key];
 });
 
+import axios from 'axios';
+Vue.prototype.$axios = axios;
+
 const app = new Vue({
 	router,
 	store,
