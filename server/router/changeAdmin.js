@@ -5,7 +5,7 @@ const Router=express.Router();
 const{Modify}=require("../db/methods")
 
 // 修改管理员密码
-const nane="admin"
+const nane="use"
 
 
 Router.post("/",async(req,res)=>{

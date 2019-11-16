@@ -1,6 +1,6 @@
 <template>
   <ul class="tabTitle">
-    <li v-for='(item,index) of items' :class='{on : index === idx }' @click="$router.push(item.push)">{{item.name}}</li>
+    <li v-for='(item,index) of items' :key="item" :class='{on : index === idx }' @click="$router.push(item.push)">{{item.name}}</li>
   </ul>
 </template>
 <script>

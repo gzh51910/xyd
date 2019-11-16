@@ -36,7 +36,7 @@
       </li>
     </ul>
     <div class="btnWarp">
-      <span class="subBtn" :class="{grayBg:!checked}" @click="goReg">立即注册</span>
+      <span class="subBtn" :class="{grayBg:!checked}" @click="goReg(phone,pwdTwo,pwdOne)">立即注册</span>
     </div>
     <div class="agreeMent mt20" :class="{ no : !checked }" @click="checked = !checked">
       我已阅读并同意
@@ -46,7 +46,7 @@
   </div>
 </template>
 <script>
-// import { my } from "../../Api";
+import { my } from "../../Api";
 // import Axios from "axios";
 export default {
   data() {
@@ -58,18 +58,14 @@ export default {
       checked: true, //是否同意协议
       showPwdOne: true, //开关--明文显示第一个密码
       showPwdTwo: true, //开关--明文显示第二个密码
-      canvas: {}, //存放canvas DOM节点
-      regForm: {
-        phone: "",
-        pwdTwo: ""
-      }
+      canvas: {} //存放canvas DOM节点
     };
   },
   methods: {
-    goReg() {
+    goReg(phone, pwdTwo, pwdOne) {
       let checkPhone = /^[1][3578][0-9]{9}$/,
         checkPwdOne = /^[\d\D]{6,12}$/;
-
+        
       //先做一些简单的判断再提交ajax
       if (this.checked === false) this.$dialog("请阅读并同意协议");
       else if (checkPhone.test(this.phone) === false)
@@ -82,20 +78,18 @@ export default {
         this.$dialog("密码格式不正确");
       else if (this.pwdTwo !== this.pwdOne) this.$dialog("确认密码不正确");
       else {
-        // async function a() {
-        //   let { phone, pwdTwo } = this.regForm;
-        //   let { data } = await my.post("addAdmin", {
-        //     phone,
-        //     pwdTwo
-        //   });
-        //   console.log(data);
-        //   if (data.status === 1) {
-        //     this.$router.replace("/login");
+        async function a() {
+          
+          let data  = await my.get("/addAdmin", {
+            "admin":phone,
+            "password":pwdTwo
+          });
+        }
+        a();
+        // if (data.status === 200) {
+        //     this.$router.push("/login");
         //   }
-        // }
-        // a();
-
-        //先由跳到登录页暂代，后期ajax
+        // //先由跳到登录页暂代，后期ajax
         this.$router.push("/login");
       }
     },
