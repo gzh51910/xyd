@@ -54,8 +54,10 @@
         else if (this.code.toUpperCase() !== this.canvasCode.codeNums.toUpperCase()) this.$dialog('验证码不正确');
         else {
             let data = await axios.get(`http://localhost:3306/login/?admin=${name}&password=${pwd}`);
+
             if(data.data=="成功"){
-            this.$router.push('/loan')
+              document.cookie=`username=${name}`
+            this.$router.push('/user')
             }else{
               alert("用户名或密码错误")
             }
@@ -64,9 +66,7 @@
       goCancel() {
         //根据情景不一样，跳转的页面也会不同，暂定跳到我的借款首页
         //...省略
-        // this.$router.push('/loan')
-        console.log(this);
-        
+        this.$router.push('/loan')
       },
       sendCode(val) {
         this.code = val

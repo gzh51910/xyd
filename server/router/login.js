@@ -5,7 +5,7 @@ const Router=express.Router();
 const{query}=require("../db/methods")
 
 // 登陆
-const nane="use"
+const nane="user"
 
 
 Router.get("/",async(req,res)=>{

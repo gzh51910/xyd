@@ -5,7 +5,7 @@ const Router=express.Router();
 const{add,query}=require("../db/methods")
 
 // 添加
-const nane="use"
+const nane="user"
 
 
 Router.get("/",async(req,res)=>{

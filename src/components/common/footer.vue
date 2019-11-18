@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <ul>
-      <li v-for='(item,index) of items' :class='[ item.cls , {on:index === idx} ]' @click="$router.push(item.push)">
+      <li v-for='(item,index) of items'  :class='[ item.cls , {on:index === idx} ]' @click="$router.push(item.push)">
         {{item.name}}
       </li>
     </ul>

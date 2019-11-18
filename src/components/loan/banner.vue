@@ -1,13 +1,13 @@
 <template>
   <div class="indexBanner" id="banner" ref="banner">
     <ul ref="ul" style="margin-left: 0;">
-      <li v-for="data in lists" :key="data">
+      <li v-for="data in lists">
         <img :src="require(data.img)" :alert="data.tit" class="bannerimg" />
       </li>
     </ul>
     <div class="tag" id="bannerTag">
       <template v-for="(data,index) of lists">
-        <span :class="{on:data.isOn}" :key="data">{{index + 1}}</span>
+        <span :class="{on:data.isOn}">{{index + 1}}</span>
       </template>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <ul class="borrowList">
-    <li v-for='data in items' @click='goDetail(data.id)'>
+    <li v-for='data in items' :key="data" @click='goDetail(data.id)'>
       <p class="fz26 w60P">编号<span>{{data.orderNo}}</span></p>
       <p>项目状态<span class="blue">{{data.statusStr}}</span></p>
       <p class="w60P col6">申请金额<span>{{data.applyAmount}}元</span></p>

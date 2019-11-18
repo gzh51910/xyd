@@ -46,8 +46,7 @@
   </div>
 </template>
 <script>
-import { my } from "../../Api";
-// import Axios from "axios";
+import axios from "axios";
 export default {
   data() {
     return {
@@ -62,7 +61,7 @@ export default {
     };
   },
   methods: {
-    goReg(phone, pwdTwo, pwdOne) {
+    async goReg(phone, pwdTwo, pwdOne) {
       let checkPhone = /^[1][3578][0-9]{9}$/,
         checkPwdOne = /^[\d\D]{6,12}$/;
         
@@ -78,19 +77,12 @@ export default {
         this.$dialog("密码格式不正确");
       else if (this.pwdTwo !== this.pwdOne) this.$dialog("确认密码不正确");
       else {
-        async function a() {
-          
-          let data  = await my.get("/addAdmin", {
-            "admin":phone,
-            "password":pwdTwo
-          });
-        }
-        a();
-        // if (data.status === 200) {
-        //     this.$router.push("/login");
-        //   }
-        // //先由跳到登录页暂代，后期ajax
-        this.$router.push("/login");
+         let data = await axios.get(`http://localhost:3306/addAdmin/?admin=${phone}&password=${pwdTwo}`);
+            if(data.data=="添加成功"){
+            this.$router.push('/login')
+            }else{
+              alert("用户名已存在")
+            }
       }
     },
     sendCode(val) {
